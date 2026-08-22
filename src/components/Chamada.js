@@ -6,7 +6,6 @@ import {
   Text,
   View,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import Badge from './Badge';
 import {
   colors,
@@ -125,15 +124,11 @@ export default function Chamada({ pacienteAtual, onChamarProximo, filaVazia }) {
           disabled={filaVazia}
           style={[styles.buttonWrapper, filaVazia && styles.buttonDisabled]}
         >
-          <LinearGradient
-            colors={
-              filaVazia
-                ? ['#334155', '#1e293b']
-                : [colors.accentStart, colors.accentEnd]
-            }
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.gradientButton}
+          <View
+            style={[
+              styles.primaryButton,
+              filaVazia && styles.primaryButtonDisabled,
+            ]}
           >
             <Text
               style={[
@@ -143,7 +138,7 @@ export default function Chamada({ pacienteAtual, onChamarProximo, filaVazia }) {
             >
               {filaVazia ? 'FILA VAZIA' : 'CHAMAR PRÓXIMO'}
             </Text>
-          </LinearGradient>
+          </View>
         </Pressable>
       </Animated.View>
     </View>
@@ -239,10 +234,15 @@ const styles = StyleSheet.create({
     elevation: 0,
     shadowOpacity: 0,
   },
-  gradientButton: {
+  primaryButton: {
+    backgroundColor: colors.accentStart,
     paddingVertical: 14,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: radius.md,
+  },
+  primaryButtonDisabled: {
+    backgroundColor: '#334155',
   },
   buttonText: {
     color: colors.textPrimary,

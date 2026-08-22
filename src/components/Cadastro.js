@@ -7,7 +7,6 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import Badge from './Badge';
 import {
   colors,
@@ -260,14 +259,9 @@ export default function Cadastro({ onGerarSenha }) {
           onPress={handleSubmit}
           style={styles.buttonWrapper}
         >
-          <LinearGradient
-            colors={[colors.accentStart, colors.accentEnd]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.gradientButton}
-          >
+          <View style={styles.primaryButton}>
             <Text style={styles.buttonText}>GERAR SENHA</Text>
-          </LinearGradient>
+          </View>
         </Pressable>
       </Animated.View>
     </View>
@@ -417,10 +411,12 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
     ...shadows.glowPurple,
   },
-  gradientButton: {
+  primaryButton: {
+    backgroundColor: colors.accentStart,
     paddingVertical: 14,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: radius.md,
   },
   buttonText: {
     color: colors.textPrimary,

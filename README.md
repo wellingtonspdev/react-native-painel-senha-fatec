@@ -14,7 +14,6 @@ Aplicação desenvolvida em **React Native + Expo** para a disciplina de **Progr
 
 - **React Native** (v0.74.5)
 - **Expo** (~51.0.0)
-- **Expo Linear Gradient** (~13.0.2)
 - **Expo Status Bar** (~1.12.1)
 - **React Hooks** (`useState`, `useEffect`, `useRef`)
 - **React Native Animated** (animações nativas leves)
@@ -163,5 +162,5 @@ O código foi 100% projetado para ser copiado diretamente para o [Snack Expo](ht
    - `src/components/GerarSenha.js`
    - `src/components/Chamada.js`
    - `src/components/FilaEspera.js`
-3. Cole o conteúdo de [App.js](file:///D:/atividade-pratica-02-painel-senha/App.js) no `App.js` do Snack.
-4. O Snack resolverá automaticamente `expo-linear-gradient` e `expo-status-bar`.
+3. Cole o conteúdo de App.js no App.js do Snack.
+4. O Snack resolverá automaticamente o runtime padrão sem dependências nativas adicionais.

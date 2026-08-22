@@ -88,8 +88,20 @@ Para o Snack conseguir importar o repositório sem disparar o uploader com falha
 
 ---
 
-## 5. Como Evitar o Problema em Novos Projetos
+## 5. Problema Adicional: `Cannot read properties of undefined (reading 'ReactCurrentOwner')` com `expo-linear-gradient`
+
+### Diagnóstico:
+No runtime Web preview do Expo Snack, pacotes que acessam internos privados do React (`React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner`), como versões antigas ou web de `expo-linear-gradient`, geram crash no carregamento do bundle (`TypeError: Cannot read properties of undefined (reading 'ReactCurrentOwner')`).
+
+### Solução:
+Substituir `LinearGradient` por componentes visuais nativos (`View` / `Pressable`) com estilos de cor sólida e bordas semânticas do tema, eliminando a dependência do `expo-linear-gradient` para garantir compatibilidade 100% universal em Web, Android e iOS no Snack.
+
+---
+
+## 6. Como Evitar o Problema em Novos Projetos
 
 1. **Nunca versione imagens locais de documentação no mesmo branch do app** se o repositório for destinado a importação no Expo Snack (use URLs públicas do GitHub).
 2. **Não versione arquivos sem extensão** (como `.gitignore`) na branch do Snack.
 3. **Mantenha o `app.json` sem referências a assets locais não existentes.**
+4. **Evite pacotes dependentes de React internals legados** (ex: `expo-linear-gradient` em botões simples) para visualização Web estável no Snack.
+
